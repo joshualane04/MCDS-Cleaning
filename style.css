@@ -26,7 +26,7 @@ body {
 
 header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
     background: white;
@@ -64,6 +64,44 @@ nav {
     background-color: navy;
     bottom: 0;
     left: 0;
+}
+
+.about {
+    font-size: 24px;
+    text-align: center;
+    margin: 30px auto;
+    font-weight: bold;
+    color: #333;
+}
+
+h2.quote {
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.5;
+    color: #333;
+    padding: 20px 40px;
+    border-left: 4px solid #ccc;
+    margin-left: 20px;
+    background-color: #f9f9f9;
+    position: relative;
+}
+
+h2.quote::before {
+    content: '"';
+    font-size: 60px;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    color: #ccc;
+}
+
+h2.quote::after {
+    content: '"';
+    font-size: 60px;
+    position: absolute;
+    right: 10px;
+    bottom: -20px;
+    color: #ccc;
 }
 
 .hero {
@@ -284,17 +322,6 @@ nav {
     border-radius: 8px;
 }
 
-.footer {
-    border-top: 10px solid navy;
-    text-align: center;
-    padding: 20px;
-    background: white;
-}
-
-.footer img {
-    height: 140px;
-}
-
 @media (max-width: 768px) {
     .service-item {
         flex-direction: column;
@@ -304,4 +331,3 @@ nav {
         min-height: 200px;
     }
 }
-
