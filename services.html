@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link rel="icon" href="images/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -17,7 +18,7 @@
             <a href="index.html" class="nav-item">Home</a>
             <a href="services.html" class="nav-item">Services</a>
             <a href="#testimonials" class="nav-item">Testimonials</a>
-            <a href="#footer" class="nav-item">Contact</a>
+            <a href="#contact" class="nav-item">Contact</a>
         </nav>
     </header>
     
@@ -74,7 +75,7 @@
         <div class="service-item">
             <div class="service-content">
                 <h2>Window & Floor Cleaning</h2>
-                <p>Specialized services to maintain your windows, floors, and other surfaces at their best. We use professional equipment and techniques for streak-free, long-lasting results.</p>
+                <p>Specialised services to maintain your windows, floors, and other surfaces at their best. We use professional equipment and techniques for streak-free, long-lasting results.</p>
                 <ul class="service-features">
                     <li>Interior window washing</li>
                     <li>Hard floor mopping and polishing</li>
@@ -86,9 +87,95 @@
             <div class="service-image" style="background-image: url('images/window-cleaning.jpg');"></div>
         </div>
     </div>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="contact-icon">📍</i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>30 Plantation Rd, Cairns QLD 4870</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="contact-icon">📱</i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p><a href="tel:0400123456">0400 123 456</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="contact-icon">✉️</i>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a href="mcdscleaningservices@gmail.com">mcdscleaningservices@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="contact-icon">🕒</i>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 8am - 8pm</p>
+                            <p>Saturday: 8am - 5pm</p>
+                            <p>Sunday: 8am - 3pm </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61074.83019624877!2d145.75773894875078!3d-16.916564590160423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x443c20c4b6849821%3A0xf0ca445da0b7c215!2sMCDS%20Cleaning%20Services!5e0!3m2!1sen!2sau!4v1741435335685!5m2!1sen!2sau"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <footer class="footer">
         <img src="images/black.png" alt="MCS Cleaning Services Footer Logo">
     </footer>
+
+    <script>
+        $(document).ready(function () {
+            $("nav a").click(function (e) {
+                if (this.hash !== "") {
+                    e.preventDefault();
+    
+                    var hash = this.hash;
+    
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+                        window.location.hash = hash;
+                    });
+                }
+            });
+    
+            $(".service-item, #contact").addClass("slide-in");
+            
+            function checkSlide() {
+                $(".slide-in").each(function() {
+                    const slideInAt = (window.scrollY + window.innerHeight) - $(this).height()/2;
+                    const elementBottom = $(this).offset().top + $(this).height();
+                    const isHalfShown = slideInAt > $(this).offset().top;
+                    const isNotScrolledPast = window.scrollY < elementBottom;
+                    
+                    if (isHalfShown && isNotScrolledPast) {
+                        $(this).addClass("active");
+                    }
+                });
+            }
+            
+            checkSlide();
+            
+            $(window).scroll(function() {
+                checkSlide();
+            });
+        });
+    </script>
 </body>
 </html>
