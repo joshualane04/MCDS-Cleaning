@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
+html, body {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     background-color: #F5F9FC;
@@ -74,6 +78,10 @@ nav {
     color: #333;
 }
 
+.about h1 {
+    padding-top: 20px;
+}
+
 h2.quote {
     font-size: 20px;
     font-style: italic;
@@ -82,7 +90,7 @@ h2.quote {
     padding: 20px 40px;
     border-left: 4px solid #ccc;
     margin-left: 20px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     position: relative;
 }
 
@@ -141,7 +149,6 @@ h2.quote::after {
 }
 
 .hero p {
-    padding-bottom: 3%;
     font-size: 18px;
     margin-bottom: 20px;
 }
@@ -154,7 +161,7 @@ h2.quote::after {
     border: none;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    text-transform: uppercase;
+    border-radius: 25px;
 }
 
 .quote-button:hover {
@@ -179,6 +186,22 @@ h2.quote::after {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    margin-top: 0;
+    color: #1B3B5F;
 }
 
 .footer {
@@ -330,4 +353,112 @@ h2.quote::after {
     .service-image {
         min-height: 200px;
     }
+
+    .contact-content {
+        flex-direction: column;
+    }
+    
+    .contact-map {
+        height: 300px;
+    }
 }
+
+/* Contact Section Styles */
+.contact {
+    padding: 60px 0;
+    background-color: #f5f9fc;
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact h2 {
+    text-align: center;
+    color: #1B3B5F;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-item {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.contact-icon {
+    font-size: 24px;
+    margin-right: 15px;
+    background-color: #e6f0f9;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-item h3 {
+    margin: 0 0 5px 0;
+    color: #1B3B5F;
+    font-size: 18px;
+}
+
+.contact-item p {
+    margin: 0;
+    line-height: 1.5;
+    color: #333;
+}
+
+.contact-item a {
+    color: #1B3B5F;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item a:hover {
+    color: navy;
+}
+
+.contact-map {
+    flex: 1;
+    min-width: 300px;
+    height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideInFromRight {
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  .slide-in {
+    opacity: 0;
+  }
+  
+  .slide-in.active {
+    animation: slideInFromRight 1.2s ease-out forwards;
+  }
